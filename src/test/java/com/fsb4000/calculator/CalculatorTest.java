@@ -2,7 +2,9 @@ package com.fsb4000.calculator;
 
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
-
+/**
+ Calculator test class
+*/
 public class CalculatorTest {
     private Calculator calculator = new Calculator();
 
