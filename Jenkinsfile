@@ -35,5 +35,21 @@ pipeline {
                 ])
             }
         }
+        stage("Package") {
+            steps {
+                sh "./gradlew build"
+            }
+        }
+        stage("Docker build") {
+            steps {
+                sh "docker build -t fsb4000/calculator ."
+            }
+        }
+        stage("Docker push") {
+            steps {
+                sh "docker login --username fsb4000 --password 'docker_password'"
+                sh "docker push fsb4000/calculator"
+            }
+        }
     }
 }
